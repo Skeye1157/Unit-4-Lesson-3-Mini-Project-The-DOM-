@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mini Project: Web Design Club Goes Live</title>
+<style>
+  :root{
+    --navy:#1F3864;
+    --lightblue:#CADCFC;
+    --white:#FFFFFF;
+    --ink:#1a1a1a;
+    --code-bg:#25324d;
+    --code-text:#e8eef7;
+    --code-blue:#9FC1F5;
+    --code-comment:#7f93b5;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; font-family:Calibri, Arial, sans-serif; color:var(--ink);
+    background:#f4f6fb;
+  }
+  h1,h2,h3{ font-family:Cambria, Georgia, serif; color:var(--navy); }
+  .wrap{ max-width:880px; margin:0 auto; padding:0 0 80px 0; background:var(--white); }
+  header{
+    background:linear-gradient(160deg, var(--navy) 0%, #152848 100%);
+    color:var(--white);
+    padding:42px 48px;
+  }
+  header .tag{ background:var(--lightblue); color:var(--navy); padding:5px 14px; border-radius:2px; font-family:Cambria, Georgia, serif; font-size:0.9em; }
+  header h1{ color:var(--white); margin:16px 0 6px 0; font-size:2.1em; }
+  header p{ color:var(--lightblue); margin:0; font-size:1.05em; }
+  section{ padding:32px 48px; border-bottom:1px solid #e4e9f2; }
+  .meta-row{ display:flex; gap:32px; flex-wrap:wrap; padding:22px 48px; background:var(--lightblue); }
+  .meta-item .label{ font-family:Cambria, Georgia, serif; color:var(--navy); font-size:0.85em; font-weight:bold; }
+  .meta-item .val{ font-size:0.95em; }
+  ul, ol{ line-height:1.7; padding-left:1.3em; }
+  li{ margin-bottom:6px; }
+  code.inline{ background:var(--lightblue); padding:2px 7px; border-radius:3px; font-family:'Courier New', monospace; font-size:0.92em; }
+  pre{
+    background:var(--code-bg); color:var(--code-text);
+    padding:18px 22px; border-radius:6px;
+    font-family:'Courier New', Consolas, monospace; font-size:0.9em;
+    line-height:1.55; overflow-x:auto; margin:14px 0;
+  }
+  pre .cmt{ color:var(--code-comment); font-style:italic; }
+  pre .kw{ color:var(--code-blue); font-weight:bold; }
+  .callout{ background:var(--lightblue); border-left:6px solid var(--navy); padding:14px 20px; margin:16px 0; }
+  .callout.warn{ background:#fdf1e7; border-left-color:#a15c1f; }
+  .step{
+    display:flex; gap:16px; margin-bottom:18px;
+  }
+  .step .num{
+    flex:0 0 34px; height:34px; border-radius:50%;
+    background:var(--navy); color:var(--white);
+    display:flex; align-items:center; justify-content:center;
+    font-family:Cambria, Georgia, serif; font-weight:bold;
+  }
+  .step .content{ flex:1; }
+  .step .content .title{ font-weight:bold; color:var(--navy); margin-bottom:3px; }
+  .choice-grid{ display:flex; gap:18px; flex-wrap:wrap; }
+  .choice-card{
+    flex:1; min-width:230px;
+    border:1px solid var(--lightblue); border-radius:6px;
+    padding:18px;
+  }
+  .choice-card .title{ font-family:Cambria, Georgia, serif; color:var(--navy); font-weight:bold; margin-bottom:8px; }
+  table{ border-collapse:collapse; width:100%; margin:14px 0; }
+  th, td{ text-align:left; padding:10px 12px; border-bottom:1px solid var(--lightblue); font-size:0.92em; vertical-align:top; }
+  th{ font-family:Cambria, Georgia, serif; color:var(--navy); border-bottom:2px solid var(--navy); }
+  .checklist li{ list-style:none; }
+  .checklist li::before{ content:"\2610  "; color:var(--navy); font-weight:bold; }
+  .timing{ font-size:0.85em; color:#555; font-style:italic; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <span class="tag">Standards 3.1.6 &amp; 3.1.7</span>
+    <h1>Mini Project: Web Design Club Goes Live</h1>
+    <p>Turn your Web Design Club page into something that responds to its users.</p>
+  </header>
+
+  <div class="meta-row">
+    <div class="meta-item"><div class="label">Time</div><div class="val">~90 minutes</div></div>
+    <div class="meta-item"><div class="label">Tools</div><div class="val">VM &middot; VS Code &middot; Git/GitHub &middot; browser DevTools</div></div>
+    <div class="meta-item"><div class="label">Submit</div><div class="val">GitHub repo link</div></div>
+    <div class="meta-item"><div class="label">Learning Intentions &amp; Success Criteria</div><div class="val">See Slide 2 of today's deck</div></div>
+  </div>
+
+  <section>
+    <h2>The Task</h2>
+    <p>Your Web Design Club page already has visual feedback states you designed earlier in this unit. Today you'll make two of them <strong>actually work</strong> using JavaScript and the DOM &mdash; and you'll check your work against C.R.A.P., the same way you've checked every layout decision so far.</p>
+    <div class="callout">
+      <strong>Rule for your final submission:</strong> no <code class="inline">alert()</code> anywhere in your finished code. It's a great tool for testing that a function fired — not for the real feedback a visitor sees.
+    </div>
+  </section>
+
+  <section>
+    <h2>Timing</h2>
+    <table>
+      <tr><th>Time</th><th>What you're doing</th></tr>
+      <tr><td>10 min</td><td>Setup &mdash; pull repo, create/link script.js, test connection</td></tr>
+      <tr><td>20 min</td><td>Guided build &mdash; RSVP Confirmation feature</td></tr>
+      <tr><td>35 min</td><td>Choice feature &mdash; build one more interactive feature</td></tr>
+      <tr><td>15 min</td><td>C.R.A.P. self-check &amp; polish</td></tr>
+      <tr><td>10 min</td><td>Commit, push, submit</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>Part 1 &middot; Setup</h2>
+    <div class="callout">
+      <strong>New today: <code class="inline">git pull</code>.</strong> So far you've only pushed work up to GitHub. Pulling is the opposite direction &mdash; it downloads the latest version of your repo from GitHub down to whatever machine you're on. You're on a VM today, so even though you're the only one who's touched this repo, your VM's local copy may not have your most recent commits on it. Pulling first means you're always starting from the newest version before you make new changes &mdash; skip it and you risk working on top of an outdated file, or hitting a conflict when you try to push later.
+    </div>
+    <div class="step">
+      <div class="num">1</div>
+      <div class="content"><div class="title">Pull your latest Web Design Club repo</div>
+        Open your project folder in VS Code on the VM, open a terminal (Terminal &rarr; New Terminal), and make sure you're inside your project folder. Then run:
+        <pre>git pull</pre>
+        This is the <strong>same repo</strong> you've been committing and pushing to all unit &mdash; you're not cloning it again or setting up a new remote, just syncing your local copy with what's already on GitHub. You should see a message telling you it's already up to date, or listing the files it just updated.
+      </div>
+    </div>
+    <div class="step">
+      <div class="num">2</div>
+      <div class="content"><div class="title">Create script.js</div>Add a new file, <code class="inline">script.js</code>, in your project folder (same level as your HTML file).</div>
+    </div>
+    <div class="step">
+      <div class="num">3</div>
+      <div class="content"><div class="title">Link it in your HTML</div>Right before your closing <code class="inline">&lt;/body&gt;</code> tag:
+        <pre>&lt;script src="script.js"&gt;&lt;/script&gt;</pre>
+      </div>
+    </div>
+    <div class="step">
+      <div class="num">4</div>
+      <div class="content"><div class="title">Confirm the connection</div>In script.js:
+        <pre>console.log(<span class="kw">"script.js is connected"</span>);</pre>
+        Open your page in the browser, open DevTools, and check the Console tab. You should see your message. If not &mdash; check your file path and script tag placement before moving on.
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Part 2 &middot; Guided Build: RSVP Confirmation</h2>
+    <p>Find (or add) a button on your Web Design Club page inviting visitors to RSVP for the next meeting. You'll make it respond with a message inserted into the page &mdash; not a popup.</p>
+
+    <div class="step">
+      <div class="num">1</div>
+      <div class="content"><div class="title">Give your button an id and an event attribute</div>
+        <pre>&lt;button id="rsvpBtn" onclick="handleRSVP()"&gt;RSVP for Next Meeting&lt;/button&gt;</pre>
+      </div>
+    </div>
+    <div class="step">
+      <div class="num">2</div>
+      <div class="content"><div class="title">Write the function and test it with a log first</div>
+        <pre><span class="kw">function</span> handleRSVP() {
+  console.log(<span class="kw">"RSVP button was clicked"</span>);
+}</pre>
+        Click the button. Confirm the message shows up in the console before continuing.
+      </div>
+    </div>
+    <div class="step">
+      <div class="num">3</div>
+      <div class="content"><div class="title">Replace the console.log with a real DOM update</div>
+        <pre><span class="kw">function</span> handleRSVP() {
+  <span class="kw">const</span> message = document.createElement(<span class="kw">"p"</span>);
+  message.textContent = <span class="kw">"You're on the list — see you there!"</span>;
+  message.classList.add(<span class="kw">"feedback-message"</span>);
+
+  <span class="kw">const</span> rsvpButton = document.getElementById(<span class="kw">"rsvpBtn"</span>);
+  rsvpButton.after(message);
+}</pre>
+      </div>
+    </div>
+    <div class="step">
+      <div class="num">4</div>
+      <div class="content"><div class="title">Style .feedback-message in your CSS file</div>
+        Use your site's existing colors and font (repetition) so the message looks like it belongs on the page. Make sure it doesn't shove your layout out of alignment.
+      </div>
+    </div>
+    <div class="step">
+      <div class="num">5</div>
+      <div class="content"><div class="title">Handle the repeat-click case</div>
+        Test clicking the button twice. If you get two messages stacked up, add a check so it only ever shows one (hint: check whether the message already exists before creating another).
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Part 3 &middot; Choice Feature</h2>
+    <p>Pick <strong>one</strong> more interactive feature to add to your page. All three use the same core skills &mdash; <code class="inline">getElementById</code>, a function triggered by an event attribute, and a DOM update.</p>
+    <div class="choice-grid">
+      <div class="choice-card">
+        <div class="title">Member Counter</div>
+        A button that increases a displayed "RSVP count" by 1 each time it's clicked, updating text already on the page.
+      </div>
+      <div class="choice-card">
+        <div class="title">Officer Spotlight Toggle</div>
+        A button that shows or hides a club officer's bio text &mdash; created and inserted the first time it's clicked.
+      </div>
+      <div class="choice-card">
+        <div class="title">Custom (teacher-approved)</div>
+        Propose your own interactive feedback element. Get a quick teacher check before you build &mdash; explain what triggers it and what feedback the user sees.
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Part 4 &middot; C.R.A.P. Self-Check</h2>
+    <p>Before you commit, walk your two new features through this checklist:</p>
+    <ul class="checklist">
+      <li><strong>Proximity</strong> &mdash; does each feedback element appear near the thing that triggered it?</li>
+      <li><strong>Repetition</strong> &mdash; does it use your site's existing colors, fonts, and spacing?</li>
+      <li><strong>Alignment</strong> &mdash; does adding it keep the rest of your layout intact, with nothing shoved out of place?</li>
+      <li><strong>Contrast</strong> &mdash; is it noticeable without shouting louder than the rest of your page?</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Part 5 &middot; Commit, Push, Submit</h2>
+    <p>This is the same repo and the same commit-and-push process you've used all unit &mdash; you're just adding a new commit on top of the work that's already there. In your terminal, inside your project folder:</p>
+
+    <div class="step">
+      <div class="num">1</div>
+      <div class="content"><div class="title">Check what changed (optional but good habit)</div>
+        <pre>git status</pre>
+        You should see <code class="inline">script.js</code> as a new file, plus your edited HTML and CSS files.
+      </div>
+    </div>
+    <div class="step">
+      <div class="num">2</div>
+      <div class="content"><div class="title">Stage your changes</div>
+        <pre>git add .</pre>
+        This stages everything you changed &mdash; script.js and your edited HTML/CSS &mdash; for the next commit.
+      </div>
+    </div>
+    <div class="step">
+      <div class="num">3</div>
+      <div class="content"><div class="title">Commit with a clear message</div>
+        <pre>git commit -m <span class="kw">"Add RSVP confirmation and officer toggle with JS"</span></pre>
+        A commit is a saved snapshot of your project at this point &mdash; the message should describe what you just built, not just say "updates."
+      </div>
+    </div>
+    <div class="step">
+      <div class="num">4</div>
+      <div class="content"><div class="title">Push to GitHub</div>
+        <pre>git push</pre>
+        This uploads your new commit to the same GitHub repo you've been using &mdash; no new setup needed. Refresh the repo page in your browser to confirm script.js and your changes are there.
+      </div>
+    </div>
+    <div class="step">
+      <div class="num">5</div>
+      <div class="content"><div class="title">Submit</div>
+        Submit your repository link through the assignment page &mdash; the same link you've submitted before, since it's the same repo.
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Rubric</h2>
+    <table>
+      <tr><th>Category</th><th>What's being checked</th></tr>
+      <tr><td>Technical Implementation</td><td>script.js linked correctly; function triggered by an event attribute; getElementById used to select; new element created and inserted into the DOM</td></tr>
+      <tr><td>Feedback Design</td><td>Feedback is clear, timely, and appropriately placed; no alert() in the final version</td></tr>
+      <tr><td>C.R.A.P. Application</td><td>Proximity, repetition, alignment, and contrast are evident in the new elements</td></tr>
+      <tr><td>Code Quality</td><td>Code is commented, readable, and organized in an external script.js file</td></tr>
+      <tr><td>Git/Submission</td><td>Meaningful commit message(s), pushed to GitHub, repo link submitted</td></tr>
+    </table>
+  </section>
+
+  <section style="border-bottom:none;">
+    <h2>Stuck?</h2>
+    <ul>
+      <li>Check the console first &mdash; JavaScript will usually tell you exactly what went wrong and on what line.</li>
+      <li>Confirm your <code class="inline">id</code> in the HTML matches exactly what you typed in <code class="inline">getElementById()</code> &mdash; typos here are the #1 cause of "nothing happens."</li>
+      <li>Confirm your <code class="inline">&lt;script&gt;</code> tag is right before <code class="inline">&lt;/body&gt;</code>, not in the <code class="inline">&lt;head&gt;</code>.</li>
+    </ul>
+  </section>
+
+</div>
+</body>
+</html>
