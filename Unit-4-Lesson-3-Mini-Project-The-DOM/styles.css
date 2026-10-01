@@ -1,0 +1,152 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  color: orange;
+  line-height: 1.4;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  background: #222;
+  font-family: sans-serif;
+}
+
+nav a {
+  margin-left: 16px;
+  color: orange;
+}
+
+nav a:hover {
+  color:red;
+}
+
+.hero {
+  padding: 60px 24px;
+  text-align: center;
+  background: #404040;
+}
+
+.about {
+  display: flex;
+  gap: 24px;
+  padding: 40px 24px;
+  background-color:#404040;
+}
+
+.about-text,
+.about-image {
+  flex: 1;
+  background-color:#222;
+}
+
+.about-text{
+    padding-left: 10px;
+}
+
+.image-placeholder {
+  background: #222;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #404040;
+}
+
+.meetings {
+  padding: 40px 24px;
+  background-color:#222; 
+  outline: 3px solid orange;
+  outline-offset: 0px;
+}
+
+.testimonials {
+  padding: 40px 24px;
+  background: #404040;
+}
+
+.signup {
+  padding: 40px 24px;
+  background-color:#222;
+  outline: 3px solid orange;
+  outline-offset: 0px;
+}
+
+.signup form {
+  max-width: 300px;
+}
+
+.signup label {
+  display: block;
+  margin-top: 12px;
+}
+
+.signup input {
+  display: block;
+  width: 100%;
+  padding: 6px;
+  margin-top: 4px;
+}
+
+.signup button {
+  margin-top: 16px;
+  padding: 8px 16px;
+}
+
+footer {
+  padding: 20px 24px;
+  text-align: center;
+  background: #222;
+}
+
+img:hover{
+  outline: 2px solid #1F3864;
+  outline-offset: 3px;
+}
+
+input:focus {
+  outline: none;
+  border-color: #1F3864;
+  box-shadow: 0 0 0 3px rgba (31, 56, 100, 0.15);
+}
+
+div img {
+  height: 150px
+}
+
+#rsvpBtn:hover{
+  outline: 2px solid #1F3864;
+  border-color: #1F3864;
+  box-shadow: 0 0 0 3px rgba (31, 56, 100, 0.15);  
+}
+
+#rsvpBtn:focus{
+  outline: none;
+  border-color: #1F3864;
+  box-shadow: 0 0 0 3px rgba (31, 56, 100, 0.15);  
+}
+
+#rsvpBtn{
+    margin: 10px 0px 10px 24px;
+}
+
+.feedback-message{
+    padding-left: 24px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    font-style:italic;
+    background-color:#222;
+    outline: 3px solid orange;
+    outline-offset: 0px;
+}
+
+#rsvp{
+    background-color: #404040;
+}
